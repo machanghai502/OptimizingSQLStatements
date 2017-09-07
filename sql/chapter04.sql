@@ -8,6 +8,33 @@
 CREATE SCHEMA IF NOT EXISTS book;
 USE book;
 
+
+
+##################
+#创建相关表 添加2017年9月7日 14:28:21 forever@mszhang.xin
+CREATE TABLE artist (
+	artist_id INT UNSIGNED NOT NULL,
+	type ENUM('Band','Person','Unknown','Combination') NOT NULL,
+	name VARCHAR(255) NOT NULL,
+	gender ENUM('Male','Female') DEFAULT NULL,
+	founded YEAR DEFAULT NULL,
+	country_id SMALLINT UNSIGNED DEFAULT NULL,
+	PRIMARY KEY (artist_id)
+) ENGINE=InnoDB;
+
+CREATE TABLE album (
+	album_id INT UNSIGNED NOT NULL,
+	artist_id INT UNSIGNED NOT NULL,
+	album_type_id INT UNSIGNED NOT NULL,
+	name VARCHAR(255) NOT NULL,
+	first_released YEAR NOT NULL,
+	country_id SMALLINT UNSIGNED DEFAULT NULL,
+	PRIMARY KEY (album_id)
+) ENGINE=InnoDB;
+
+
+#####################
+
 #Existing Indexes
 SELECT artist_id, type, founded FROM   artist WHERE  name = 'Coldplay';
 EXPLAIN SELECT artist_id, type, founded FROM   artist WHERE  name = 'Coldplay'\G
