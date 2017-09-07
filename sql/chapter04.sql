@@ -10,7 +10,7 @@ USE book;
 
 
 
-##################
+#######开始###########
 #创建相关表 添加2017年9月7日 14:28:21 forever@mszhang.xin
 CREATE TABLE artist (
 	artist_id INT UNSIGNED NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE album (
 ) ENGINE=InnoDB;
 
 
-#####################
+##########结束###########
 
 #Existing Indexes
 SELECT artist_id, type, founded FROM   artist WHERE  name = 'Coldplay';
