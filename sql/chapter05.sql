@@ -16,7 +16,7 @@ ALTER TABLE artist  DROP INDEX founded, ADD INDEX founded_name (founded,name);
 EXPLAIN SELECT artist_id,name,founded FROM   artist WHERE  founded=1969\G
 EXPLAIN SELECT artist_id,name,founded  FROM artist WHERE founded=1969  AND type='Person'\G
 ALTER TABLE artist  DROP INDEX founded_name,  ADD INDEX founded_type_name(founded,type,name);
-EXPLAIN SELECT artist_id,name,founded  FROM artist HERE founded=1969  AND type='Person'\G
+EXPLAIN SELECT artist_id,name,founded  FROM artist WHERE founded=1969  AND type='Person'\G
 
 # Storage Engine Implications
 ALTER TABLE artist ENGINE=MyISAM;
